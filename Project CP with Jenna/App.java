@@ -31,7 +31,12 @@ public class App
                     playList[i].askGenre();
                 }
             }
-
+            
+            if (input == 2)
+            {
+                getSong();
+            }
+            
             if (input == 3)
             {
                 int a = 0;
@@ -45,7 +50,32 @@ public class App
             }
         }
     }
-
+    
+    public static void getSong()
+    {
+        ArrayList<String> list = new ArrayList<String>();
+        System.out.println("\'Print stop when done\'");
+        while(true)
+        {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Enter Song name: ");
+            String answer = scan.nextLine();
+            Songs.setName(answer);
+            
+            if(answer.equalsIgnoreCase("stop"))
+            {
+                break;
+            }
+            
+            //Scanner input_genre = new Scanner(System.in);
+            System.out.println("Enter artist name: ");
+            String genre = scan.nextLine();
+            //if
+            Songs.setGenre(genre);
+            list.add(answer); //needs to be song with song info
+        }
+    }
+    
     public static void showMenu()
     { 
         System.out.println("");
