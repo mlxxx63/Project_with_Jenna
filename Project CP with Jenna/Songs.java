@@ -1,44 +1,40 @@
-package app;
-
-public class Song
+public class Song 
 {
-    public Song()
+    private String link;
+    private String artist;
+    private String name;
+
+    public Song() 
     {
     }
-    
-    private static String genre;
-    private static  String artist;
-    private static String name;
-    
-    //setter
-    public static void setName(String name)
+
+    public void setName(String name) 
     {
         this.name = name;
     }
-    
-    public static void setArtist(String artist)
+
+    public void setArtist(String artist) 
     {
         this.artist = artist;
     }
-    
-    public static void setGenre(String genre)
+
+    public void setLink(String link) 
     {
-        this.genre = genre;
+        this.link = link;
     }
-    
-    //getter
-    public String getSongGenre()
+
+    public String getLink() 
     {
-        return genre;
+        return link;
     }
-    
-    public String getArtist()
+
+    public String getArtist() 
     {
         return artist;
     }
-    
-    public String getName()
+
+    public String getName() 
     {
         return name;
-    }  
+    }
 }
