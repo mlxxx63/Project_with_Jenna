@@ -72,20 +72,6 @@ public class PlayList
         return playList;
     }
 
-    public ArrayList<Song> searchSongs(String searchQuery) 
-    {
-        ArrayList<Song> matchingSongs = new ArrayList<>();
-
-        for (Song song : playList) {
-            if (song.getName().equalsIgnoreCase(searchQuery) || song.getArtist().equalsIgnoreCase(searchQuery)) 
-            {
-                matchingSongs.add(song);
-            }
-        }
-
-        return matchingSongs;
-    }
-
     public void clear() 
     {
         playList.removeAll(playList);
