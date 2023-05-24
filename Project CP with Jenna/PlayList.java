@@ -1,72 +1,93 @@
-package app;
-
-public class PlayList
+public class PlayList 
 {
-    Song[] playList;
-
-    public PlayList()
-    {
-        playList = new Song[];
-    }
-
+    private ArrayList<Song> playList;
     private String name;
     private String genre;
 
-    public void askName()
+    public PlayList() 
     {
-        Scanner myObj = new Scanner(System.in);  
-        System.out.println("What is the Name of the PlayList ? ");
+        playList = new ArrayList<>();
+    }
+
+    public void setName() 
+    {
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("What is the Name of the PlayList? ");
         name = myObj.nextLine();
     }
 
-    public void askGenre()
+    public void setGenre() 
     {
-        Scanner myObj2 = new Scanner(System.in);  
-        System.out.println("What is the Genre of the PlayList ? ");
+        Scanner myObj2 = new Scanner(System.in);
+        System.out.println("What is the Genre of the PlayList? ");
         genre = myObj2.nextLine();
-    }    
+    }
 
-    public String getName()
+    public String getName() 
     {
         return name;
     }
 
-    public String getGenre()
+    public String getGenre() 
     {
         return genre;
     }
 
-    public void addSong()
+    public void addSong(int numSongs) 
     {
-        System.out.println("\'Print stop when done\'");
-        int count = 0;
-        while(true)
-        {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Enter Song name: ");
-            String getSongName = scan.nextLine();
-            Song newSong = new Song();
-            newSong.setName(getSongName); // Make song name and set it to class Song so that it is compatible to the Song array
-            
-            System.out.println("Enter artist name: ");
-            String getArtistName = scan.nextLine();
-            newSong.setArtist(getArtistName); // Make song genre and set it to class Song so that it is compatible to the Song array
+        Scanner scan = new Scanner(System.in);
 
-            // System.out.println("Enter genre: ");
-            // String getArtistName = scan.nextLine();
-            // newSong.setArtist(getArtistName);
-            
-            playList[count] = newSong;
-            count++;
-            if(getSongName.equalsIgnoreCase("stop") || getArtistName.equalsIgnoreCase("stop"))
-            {
-                break;
-            }
+        System.out.println("Enter Song name: ");
+        String songName = scan.nextLine();
+
+        System.out.println("Enter artist name: ");
+        String artistName = scan.nextLine();
+
+        Song newSong = new Song();
+        newSong.setName(songName);
+        newSong.setArtist(artistName);
+
+        playList.add(newSong);
+
+    }
+
+    public void removeSong(int index) {
+        if (index >= 0 && index < playList.size()) 
+        {
+            playList.remove(index);
+            System.out.println("Song removed from the playlist.");
+        } else 
+        {
+            System.out.println("Invalid song index.");
         }
     }
 
-    public void getSongByIndex(int z)
+    public Song getSongByIndex(int index) 
     {
-        return playList[z];
+        return playList.get(index);
+    }
+
+    public ArrayList<Song> getSongList() 
+    {
+        return playList;
+    }
+
+    public ArrayList<Song> searchSongs(String searchQuery) 
+    {
+        ArrayList<Song> matchingSongs = new ArrayList<>();
+
+        for (Song song : playList) {
+            if (song.getName().equalsIgnoreCase(searchQuery) || song.getArtist().equalsIgnoreCase(searchQuery)) 
+            {
+                matchingSongs.add(song);
+            }
+        }
+
+        return matchingSongs;
+    }
+
+    public void clear() 
+    {
+        playList.removeAll(playList);
     }
 }
