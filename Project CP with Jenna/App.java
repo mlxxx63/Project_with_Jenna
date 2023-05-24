@@ -112,7 +112,7 @@ public class App
                 System.out.println("Songs:");
                 for (Song j : songs) 
                 {   // for int j
-                    System.out.println("Song: " + j.getName() + ", Artist: " + j.getArtist());
+                    System.out.println("Song: " + j.getName() + ", Artist: " + j.getArtist() + ", Link: " + j.getLink());
                 }
             }
             System.out.println();
@@ -146,7 +146,7 @@ public class App
                 ArrayList<Song> songs = playlist.getSongList();
                 for (Song j : songs) 
                 {
-                    printWriter.println("Song: " + j.getName() + ", Artist: " + j.getArtist());
+                    printWriter.println("Song: " + j.getName() + ", Artist: " + j.getArtist() + ", Link: " + j.getLink());
                 }
                 printWriter.println();
             }
@@ -255,7 +255,8 @@ public class App
                 {
                     playlist.clear();
                     System.out.println("Playlist cleared successfully!");
-                } else 
+                } 
+                else 
                 {
                     System.out.println("Clear operation canceled.");
                 }
@@ -313,9 +314,13 @@ public class PlayList
         System.out.println("Enter artist name: ");
         String artistName = scan.nextLine();
 
+        System.out.println("Enter song link: ");
+        String songLink = scan.nextLine();
+
         Song newSong = new Song();
         newSong.setName(songName);
         newSong.setArtist(artistName);
+        newSong.setLink(songLink);
 
         playList.add(newSong);
 
@@ -342,19 +347,7 @@ public class PlayList
         return playList;
     }
 
-    public ArrayList<Song> searchSongs(String searchQuery) 
-    {
-        ArrayList<Song> matchingSongs = new ArrayList<>();
 
-        for (Song song : playList) {
-            if (song.getName().equalsIgnoreCase(searchQuery) || song.getArtist().equalsIgnoreCase(searchQuery)) 
-            {
-                matchingSongs.add(song);
-            }
-        }
-
-        return matchingSongs;
-    }
 
     public void clear() 
     {
@@ -365,7 +358,7 @@ public class PlayList
 
 public class Song 
 {
-    private String genre;
+    private String link;
     private String artist;
     private String name;
 
@@ -383,14 +376,14 @@ public class Song
         this.artist = artist;
     }
 
-    public void setGenre(String genre) 
+    public void setLink(String link) 
     {
-        this.genre = genre;
+        this.link = link;
     }
 
-    public String getGenre() 
+    public String getLink() 
     {
-        return genre;
+        return link;
     }
 
     public String getArtist() 
