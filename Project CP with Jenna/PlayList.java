@@ -43,37 +43,14 @@ public class PlayList
         System.out.println("Enter artist name: ");
         String artistName = scan.nextLine();
 
+        System.out.println("Enter song link: ");
+        String songLink = scan.nextLine();
+
         Song newSong = new Song();
         newSong.setName(songName);
         newSong.setArtist(artistName);
+        newSong.setLink(songLink);
 
         playList.add(newSong);
 
     }
-
-    public void removeSong(int index) {
-        if (index >= 0 && index < playList.size()) 
-        {
-            playList.remove(index);
-            System.out.println("Song removed from the playlist.");
-        } else 
-        {
-            System.out.println("Invalid song index.");
-        }
-    }
-
-    public Song getSongByIndex(int index) 
-    {
-        return playList.get(index);
-    }
-
-    public ArrayList<Song> getSongList() 
-    {
-        return playList;
-    }
-
-    public void clear() 
-    {
-        playList.removeAll(playList);
-    }
-}
