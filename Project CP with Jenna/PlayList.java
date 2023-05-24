@@ -54,3 +54,4 @@ public class PlayList
         playList.add(newSong);
 
     }
+}
