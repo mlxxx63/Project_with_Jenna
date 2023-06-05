@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class PlayList 
 {
     private ArrayList<Song> playList;
@@ -8,21 +11,21 @@ public class PlayList
     {
         playList = new ArrayList<>();
     }
-
-    public void setName() 
+    
+    // Mr. Bragg says: There's no change in the setters, they remain the same.
+    public void setName(Scanner scan) 
     {
-        Scanner myObj = new Scanner(System.in);
         System.out.println("What is the Name of the PlayList? ");
-        name = myObj.nextLine();
+        name = scan.nextLine();
     }
 
-    public void setGenre() 
+    public void setGenre(Scanner scan) 
     {
-        Scanner myObj2 = new Scanner(System.in);
         System.out.println("What is the Genre of the PlayList? ");
-        genre = myObj2.nextLine();
+        genre = scan.nextLine();
     }
 
+    // Mr. Bragg says: There's no change in the getters, they remain the same.
     public String getName() 
     {
         return name;
@@ -33,15 +36,15 @@ public class PlayList
         return genre;
     }
 
-    public void addSong(int numSongs) 
+    // Mr. Bragg says: We've removed the line where we were closing the scanner. Closing should only be done once, ideally in the main method.
+    public void addSong(int numSongs, Scanner scan) 
     {
-        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter artist name: ");
+        String artistName = scan.nextLine();
+        
 
         System.out.println("Enter Song name: ");
         String songName = scan.nextLine();
-
-        System.out.println("Enter artist name: ");
-        String artistName = scan.nextLine();
 
         System.out.println("Enter song link: ");
         String songLink = scan.nextLine();
@@ -52,6 +55,34 @@ public class PlayList
         newSong.setLink(songLink);
 
         playList.add(newSong);
+    }
 
+    // Mr. Bragg says: There's no change in the following methods, they remain the same.
+    public void removeSong(int index) 
+    {
+        if (index >= 0 && index < playList.size()) 
+        {
+            playList.remove(index);
+            System.out.println("Song removed from the playlist.");
+        } 
+        else 
+        {
+            System.out.println("Invalid song index.");
+        }
+    }
+
+    public Song getSongByIndex(int index) 
+    {
+        return playList.get(index);
+    }
+
+    public ArrayList<Song> getSongList() 
+    {
+        return playList;
+    }
+
+    public void clear() 
+    {
+        playList.removeAll(playList);
     }
 }
