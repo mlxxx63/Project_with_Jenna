@@ -1,5 +1,6 @@
 public class Song 
 {
+    // Class Variables
     private String link;
     private String artist;
     private String name;
@@ -7,7 +8,8 @@ public class Song
     public Song() 
     {
     }
-
+    
+    //setter methods
     public void setName(String name) 
     {
         this.name = name;
@@ -23,6 +25,7 @@ public class Song
         this.link = link;
     }
 
+    //getter methods
     public String getLink() 
     {
         return link;
