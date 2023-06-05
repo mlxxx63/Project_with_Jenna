@@ -1,5 +1,3 @@
-package app;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileWriter;
@@ -11,17 +9,19 @@ public class App
 
     public static void main(String[] args) 
     {
+        Scanner scan = new Scanner(System.in);
+
         while(true)
         {
             showMenu();
 
-            Scanner myObj = new Scanner(System.in);  // Create a Scanner object
             System.out.println("Enter what you want to do: ");
-            int input = myObj.nextInt();
-
+            int input = scan.nextInt();
+            scan.nextLine(); // Mr. Bragg says: consume the newline character left by nextInt
+            
             if (input == 1)
             {
-                createPlaylists();
+                createPlaylists(scan);
             }
 
             if (input == 2)
@@ -31,17 +31,17 @@ public class App
 
             if (input == 3)
             {
-                addSongsToPlaylist();
+                addSongsToPlaylist(scan);
             }
 
             if (input == 4)
             {
-                removeSongsFromPlaylist();
+                removeSongsFromPlaylist(scan);
             }
 
             if(input == 5)
             {
-                editPlaylistDetails();
+                editPlaylistDetails(scan);
             }
 
             if(input == 6)
@@ -51,9 +51,18 @@ public class App
 
             if(input == 7)
             {
-                clearPlaylist();
+                clearPlaylist(scan);
             }
+            
+            if(input == 8)
+            {
+                break; // Mr. Bragg says: add a break to exit the infinite loop
+            }
+        
         }
+            // Mr. Bragg says: We've moved the scanner close method here. 
+            // It should only be closed once, and that should be at the end of the main method.
+            scan.close();
     }
 
     public static void showMenu() 
@@ -73,24 +82,28 @@ public class App
 
     }
 
-    public static void createPlaylists() {
+    public static void createPlaylists(Scanner scan) {
+        System.out.println(" ");
+        
+            System.out.println("How many playlists do you want to create: ");
+            int numberPlaylists = scan.nextInt();
+            scan.nextLine();  // TB says: This will consume the leftover newline character.
+            System.out.println(" ");
 
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("How many playlists do you want to create: ");
-        int numberPlaylists = myObj.nextInt();
-
-        for (int i = 0; i < numberPlaylists; i++) {
-            System.out.println("Enter the info for Playlist " + (i + 1));
-            albumn.add(new PlayList());
-            albumn.get(i).setName();
-            albumn.get(i).setGenre();
-        }
-
+            for (int i = 0; i < numberPlaylists; i++) {
+                System.out.println("Enter the info for Playlist " + (i + 1));
+                albumn.add(new PlayList());
+                albumn.get(i).setName(scan);
+                albumn.get(i).setGenre(scan);
+                System.out.println(" ");
+            }
+        
         System.out.println("Playlists created:");
-        for (int i = 0; i < albumn.size(); i++) 
+        for(int i = 0; i < albumn.size(); i++) 
         {
             System.out.println("Playlist " + (i + 1) + ": " + albumn.get(i).getName());
         }
+        
     }
 
     public static void showPlaylists() 
@@ -119,20 +132,24 @@ public class App
         }
     }
 
-    public static void addSongsToPlaylist() 
+    public static void addSongsToPlaylist(Scanner scan) 
     {
-        Scanner myObj3 = new Scanner(System.in);
         System.out.println("Which playlist do you want to add new song(s) to?");
-        int choice = myObj3.nextInt();
-
-        Scanner myObj4 = new Scanner(System.in);
+        int choice = scan.nextInt();
+        
         System.out.println("How many songs do you want to add?");
-        int numSongs = myObj4.nextInt();
+        int numSongs = scan.nextInt();
+        scan.nextLine();
+        
+        System.out.println(" ");
         for (int i = 0; i < numSongs; i++) 
         {
             System.out.println("Enter the details for song " + (i + 1));
-            albumn.get(choice - 1).addSong(numSongs);
+            albumn.get(choice - 1).addSong(numSongs, scan);
+            System.out.println(" ");
         }
+        
+        
     }
 
     public static void savePlaylistsToFile() {
@@ -160,10 +177,10 @@ public class App
         }
     }
 
-    public static void editPlaylistDetails() {
-        Scanner myObj = new Scanner(System.in);
+    public static void editPlaylistDetails(Scanner scan) {
         System.out.println("Enter the playlist index you want to edit: ");
-        int playlistIndex = myObj.nextInt();
+        int playlistIndex = scan.nextInt();
+        scan.nextLine();
 
         if (playlistIndex >= 1 && playlistIndex <= albumn.size()) 
         {
@@ -173,10 +190,10 @@ public class App
             System.out.println("Genre: " + playlist.getGenre());
 
             System.out.println("Enter the updated name (press Enter to skip): ");
-            playlist.setName();
+            playlist.setName(scan);
 
             System.out.println("Enter the updated genre (press Enter to skip): ");
-            playlist.setGenre();
+            playlist.setGenre(scan);
 
             System.out.println("Playlist details updated successfully!");
         } 
@@ -186,11 +203,11 @@ public class App
         }
     }
 
-    public static void removeSongsFromPlaylist() {
+    public static void removeSongsFromPlaylist(Scanner scan) {
 
-        Scanner myObj = new Scanner(System.in);
         System.out.println("Enter the playlist index to remove songs from: ");
-        int playlistIndex = myObj.nextInt();
+        int playlistIndex = scan.nextInt();
+        
 
         if (playlistIndex >= 1 && playlistIndex <= albumn.size()) 
         {
@@ -209,9 +226,9 @@ public class App
                     System.out.println((i + 1) + ". Song: " + songs.get(i).getName() + ", Artist: " + songs.get(i).getArtist());
                 }
 
-                Scanner inputScanner = new Scanner(System.in);
                 System.out.println("Enter the index of the song to remove: ");
-                int songIndex = inputScanner.nextInt();
+                int songIndex = scan.nextInt();
+               
 
                 if (songIndex >= 1 && songIndex <= songs.size()) 
                 {
@@ -228,12 +245,13 @@ public class App
             System.out.println("Invalid playlist index!");
         }
     }
+    
 
-    public static void clearPlaylist() 
+    public static void clearPlaylist(Scanner scan) 
     {
-        Scanner myObj = new Scanner(System.in);
         System.out.println("Enter the playlist index to clear: ");
-        int playlistIndex = myObj.nextInt();
+        int playlistIndex = scan.nextInt();
+        scan.nextLine();
     
         if (playlistIndex >= 1 && playlistIndex <= albumn.size()) 
         {
@@ -247,9 +265,9 @@ public class App
 
             else 
             {
-                Scanner confirmationScanner = new Scanner(System.in);
                 System.out.println("Are you sure you want to clear the playlist? (yes/no)");
-                String confirmation = confirmationScanner.nextLine();
+                String confirmation = scan.nextLine();
+
     
                 if (confirmation.equalsIgnoreCase("yes")) 
                 {
@@ -268,135 +286,5 @@ public class App
         }
     }
 }
-
-public class PlayList 
-{
-    private ArrayList<Song> playList;
-    private String name;
-    private String genre;
-
-    public PlayList() 
-    {
-        playList = new ArrayList<>();
-    }
-
-    public void setName() 
-    {
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("What is the Name of the PlayList? ");
-        name = myObj.nextLine();
-    }
-
-    public void setGenre() 
-    {
-        Scanner myObj2 = new Scanner(System.in);
-        System.out.println("What is the Genre of the PlayList? ");
-        genre = myObj2.nextLine();
-    }
-
-    public String getName() 
-    {
-        return name;
-    }
-
-    public String getGenre() 
-    {
-        return genre;
-    }
-
-    public void addSong(int numSongs) 
-    {
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Enter Song name: ");
-        String songName = scan.nextLine();
-
-        System.out.println("Enter artist name: ");
-        String artistName = scan.nextLine();
-
-        System.out.println("Enter song link: ");
-        String songLink = scan.nextLine();
-
-        Song newSong = new Song();
-        newSong.setName(songName);
-        newSong.setArtist(artistName);
-        newSong.setLink(songLink);
-
-        playList.add(newSong);
-
-    }
-
-    public void removeSong(int index) {
-        if (index >= 0 && index < playList.size()) 
-        {
-            playList.remove(index);
-            System.out.println("Song removed from the playlist.");
-        } else 
-        {
-            System.out.println("Invalid song index.");
-        }
-    }
-
-    public Song getSongByIndex(int index) 
-    {
-        return playList.get(index);
-    }
-
-    public ArrayList<Song> getSongList() 
-    {
-        return playList;
-    }
-
-
-
-    public void clear() 
-    {
-        playList.removeAll(playList);
-    }
-}
-
-
-public class Song 
-{
-    private String link;
-    private String artist;
-    private String name;
-
-    public Song() 
-    {
-    }
-
-    public void setName(String name) 
-    {
-        this.name = name;
-    }
-
-    public void setArtist(String artist) 
-    {
-        this.artist = artist;
-    }
-
-    public void setLink(String link) 
-    {
-        this.link = link;
-    }
-
-    public String getLink() 
-    {
-        return link;
-    }
-
-    public String getArtist() 
-    {
-        return artist;
-    }
-
-    public String getName() 
-    {
-        return name;
-    }
-}
-
-
     
 
