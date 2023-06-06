@@ -3,8 +3,9 @@
     <head>
         <title>User Guide</title>
         <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet">
     </head>
-    <body style="background-color:FloralWhite;">
+    <body>
         <a href="index.html">Home</a>&emsp;<a href="About.html">About Us</a>
         
         <center>
@@ -13,14 +14,185 @@
         </center>
         <hr>
         
+        <div id="General">
+            <h2>General Usage</h2>
+            <p>The aim of this program is to allow you, your friends & family to 
+            easily share your favourite songs and artists with each other. Our program allows you to 
+            share these playlists (no matter what music programs everyone uses) 
+            so your friends can easily give your music tastes a try. You will be
+            able to add Youtube links to each song so you can easily find them,
+            allowing you to listen to them as well.</p>
+        </div>
+        <hr>
+        
         <div id="Functions">
             <h2>Functions:</h2>
+            <p>There is <strong>8</strong> options in total to choose from.</p>
             <ul>
-                <li>Create playlist</li>
-                <li>See all playlists</li>
-                <li>Add songs</li>
-                <li>View songs in playlists</li>
+                <li>Option 1: Create playlists</li>
+                <li>Option 2: Show playlists</li>
+                <li>Option 3: Add new songs to a playlist</li>
+                <li>Option 4: Remove songs from a playlist</li>
+                <li>Option 5: Edit playlist details</li>
+                <li>Option 6: Save playlists to a file</li>
+                <li>Option 7: clear all songs from a playlist</li>
+                <li>Option 8: Exit</li>
             </ul>
         </div>
+        <hr>
+        
+        <div class="Use-Function">
+            <h2>Using Functions:</h2>
+            <h3 id="insruct">How to use the functions and how they work.</h3>
+                
+                <!--Option 1-->
+                <h3 class="options" id="option-1">Option 1: Create playlists</h3>
+                    <p>When the <b>Main Menu</b> asks "Enter what you want to do"
+                    you will type <b>1</b> and then hit the <em>enter</em> key on your keyboard.
+                    The program will then ask you how many playlists you would like to create.
+                    Type in the number you would like and then hit the <em>enter</em> key. 
+                    It will then ask you for the name of your playlist. This is where you type in the name 
+                    and again hit the <em>enter</em> key. Afterwards it will ask you for the genre of the
+                    playlist. You will again type out the genre and hit the <em>enter</em> key. The program
+                    will get you to repeat these steps until it has finished adding all the playlists
+                    you wanted to add. After adding all the playlists, it will print out the playlists you created
+                    including the name and number of the playlist (each playlist is given a number so it
+                    can be found easily). Function 1 ends and you will be prompted with the <b>Main Menu</b> again.</p>
+                    <img src="https://codehs.com/uploads/87ce30f02ebd72465ad5b00a68918362" 
+                    style="width:400.4px; height:445.9px;" alt="An example of Option 1 being used">
+                    
+                <!--Option 2-->
+                <h3 class="options">Option 2: Show playlists</h4>
+                    <p>When the <b>Main Menu</b> asks "Enter what you want to do"
+                    you will type <b>2</b> and then hit the <em>enter</em> key on your keyboard. 
+                    The program will then list out the playlist(s) you have created 
+                    including the name and genre of each playlist. If you have added any songs to the playlist,
+                    it will also list out the songs, showing you the song name,
+                    artist name and YouTube link. If you haven't added any songs yet 
+                    it will say: <em>"No songs added to this playlist yet!"</em> You 
+                    will then be returned to the main menu.</p>
+                    <img src="https://codehs.com/uploads/bf203d9758b22650dab6f33c070b425b" 
+                    style="width:694.62px; height:195.84px;" alt="An example of Option 2 being used">
+               
+                <!--Option 3-->
+                <h3 class="options">Option 3: Add new songs to a playlist</h4>
+                    When the <b>Main Menu</b> asks "Enter what you want to do"
+                    you will type <b>3</b> and then hit the <em>enter</em> key on your keyboard.
+                    The program will ask you which playlist you want to add to and how many songs. 
+                    First type in the playlist number and hit the <em>enter</em> key. Then type
+                    the number of songs you wish to add and click the <em>enter</em> key again. 
+                    Answer all of the questions prompted to you and continue to the next one
+                   by hitting the <em>enter</em> key. The questions will ask you for the
+                   artist name, song name and then the song link. The song cannont be added if
+                   any of these questions are left blank. You 
+                    will be returned to the main menu.</p>
+                    <p>In order to share music with your friends, you will have to share a link 
+                    to the song you wish to share. <strong id="youtube">The link must be a youtube link.</strong> 
+                    Without a Youtube link, the song won't be added as this ensures 
+                    the artists copyrights are being protected.</p>
+                    
+                    <p class="bold">Example of Function 3 being used:</p>
+                    <img src="https://codehs.com/uploads/63164813ea3239110003b3bedb0f67f5" 
+                    style="width:358px; height:321px;" alt="An example of Option 3 being used">
+                
+                <!--Option 4-->
+                <h3 class="options">Option 4: Remove songs from a playlist</h4>
+                    When the <b>Main Menu</b> asks "Enter what you want to do"
+                    you will type <b>4</b> and then hit the <em>enter</em> key on your keyboard. 
+                    The program will ask you which playlist you want to remove songs from.
+                    You will type in the number of the playlist and hit <em>enter</em>. It will
+                     then print out the list of songs inside of the playlist in a numbered list. 
+                     You will type the number from the list of the song you want to remove.
+                     Hit <em>enter</em>. The program will then remove the song. Afterwards you 
+                    will be returned to the main menu.
+                    </p>
+                   
+                    <p class="bold">Example of Function 4</p>
+                <img src="https://codehs.com/uploads/5975c6ae87200535bef7f265b9275355" 
+                    style="width:446.6px; height:191.4 px;" alt="An example of Option 4 being used">
+                    <br>
+                    <p class="bold">Function 2 after song has been removed from playlist:</p>
+                    <img src="https://codehs.com/uploads/539ce775f6462688dad994a8aaf91ca8" 
+                    style="width:795.6px; height:219.7px;" alt="An example of Option 2 being used after removing a song">
+                    
+                <!--Option 5-->
+                <h3 class="options">Option 5: Edit playlist details</h4>
+                    When the <b>Main Menu</b> asks "Enter what you want to do" 
+                    you will type <b>5</b> and then hit the <em>enter</em> key on your keyboard. 
+                    The program will ask you for the number of the playlist you wish to edit
+                     (every playlist is numbered). You will type it in and hit <em>enter</em>.
+                     You will then answer the questions that allows you to rename your
+                     playlist and change the genre. Press <em>enter</em> after entering in new
+                      information. Playlist will update and you will retutn to main menu.
+                    </p> 
+                <img src="https://codehs.com/uploads/42ce19142a5e4328cb8701272f01a4b5" 
+                    style="width:406.5px; height:246.33px;" alt="An example of Option 5 being used">
+                    
+                <!--Option 6-->
+                <h3 class="options">Option 6: Save playlists to a file</h4>
+                    When the <b>Main Menu</b> asks "Enter what you want to do" you 
+                    will type <b>6</b> and then hit the <em>enter</em> key on your keyboard.
+                    The program will then save all of your playlists into a text file. You 
+                    will be then be returned to the main menu.</p> 
+                <img src="https://codehs.com/uploads/063375663fa4c535a7b3db396a45bdba" 
+                    style="width:406.5px; height:76.5px;" alt="An example of Option 6 being used">
+                    
+                <!--Option 7-->
+                <h3 class="options">Option 7: clear all songs from a playlist</h4>
+                    When the <b>Main Menu</b> asks "Enter what you want to do"
+                    you will type <b>7</b> and then hit the <em>enter</em> key on your keyboard. 
+                    Chose the number of the playlist you wish to edit (playlists
+                    are sorted by numbers). It will ask you if you w</p> 
+                    
+                    <p class="bold">An example of Function 7 being used:</p>
+                    <img src="https://codehs.com/uploads/85a8f6b0ac660582fb31e58a4d9d84a0" 
+                    style="width:534.8px; height:135.7px;" alt="An example of Option 7 being used">
+                    
+                    <p class="bold">An example of Function 7 being cancelled: </p>
+                    <img src="https://codehs.com/uploads/1477b5a8ea0240c02174f37deb7ae038" 
+                    style="width:534.8px; height:147px;" alt="An example of Option 7 being cancelled">
+                    
+                <!--Option 8-->
+                <h3 class="options">Option 8: Exit</h4>
+                    <p>When the <b>Main Menu</b> asks "Enter what you want to do"
+                    you will type 8 and then hit the <em>enter</em> key on your 
+                    keyboard. Afterwards the program will stop running (exiting 
+                    the program).</p>
+        </div>
+        <hr>
+        
+        <div id="Starting">
+            <h2>Getting Started:</h2>
+            <p>The program will prompt you with all of the 
+            <a href="#Functions">Functions</a> available in a <strong>Main Menu</strong>.
+            </p>
+            <p>It will look like this:</p>
+            <img src="https://codehs.com/uploads/24de9b77443ecfe04c701c3f056e67a6"
+            style="width:634.4px;height:353.6px;" alt="A picture of the menu">
+            <br>
+            <p>
+                It will also ask you what you want to do next.
+            </p>
+            <p>
+                This is where you type in your command of what you want the program
+            to do. You will type in any of the option numbers from 1-8.</p>
+            <p>
+            The program will then ask you questions based on the function you 
+            are using.
+            </p>
+            <p> &emsp; &emsp; <strong>Ex.</strong> If you chose
+            <em><a href="option-1">Option 1</a></em> you will then be asked how 
+            many playlists you would like to make. It will then ask you for the
+            name and genre of each playlist.</p>
+            <p>After using a function, the program will again prompt you with the
+            <strong>Main Menu</strong>. It will continue doing this and you can 
+            continue using the program until you choose <em>Option 8</em> which
+            will allow you to exit the program.</p>
+        </div>
+        
+        <div class="footer">
+            
+        </div>
+        
     </body>
 </html>
