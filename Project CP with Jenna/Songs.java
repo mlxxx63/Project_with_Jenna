@@ -40,4 +40,10 @@ public class Song
     {
         return name;
     }
+    
+    //toString method
+    public String toString()
+    {
+    return "Song: " + name + ", Artist: " + artist + ", Link: " + link;
+    }
 }
