@@ -1,5 +1,5 @@
 * {
-    background-color: FloralWhite;"
+    background-color: FloralWhite;
 }
 
 #index{
@@ -52,4 +52,11 @@ a{
 
 .options{
     color: #B94509;
+}
+.center{
+    text-align: center;
+}
+
+.dark-color{
+    background-color: #FFF0D0;
 }
