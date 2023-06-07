@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 
 // main fuction to run the code
-public class app 
+public class App 
 {
     // An ArrayList that hold the playList ArrayList
     public static ArrayList<PlayList> albumn = new ArrayList<>();
@@ -140,7 +140,7 @@ public class app
                 System.out.println("Songs:");
                 for (Song j : songs) 
                 {   // for int j
-                    System.out.println("Song: " + j.getName() + ", Artist: " + j.getArtist() + ", Link: " + j.getLink());
+                    System.out.println(j.toString());
                 }
             }
             System.out.println();
@@ -182,7 +182,7 @@ public class app
                 ArrayList<Song> songs = playlist.getSongList();
                 for (Song j : songs) 
                 {
-                    printWriter.println("Song: " + j.getName() + ", Artist: " + j.getArtist() + ", Link: " + j.getLink());
+                    printWriter.println(j.toString());
                 }
                 printWriter.println();
             }
